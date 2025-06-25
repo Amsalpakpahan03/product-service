@@ -1,0 +1,153 @@
+{
+  "info": {
+    "name": "ProductService API Test",
+    "_postman_id": "b5a5c5a9-35b0-4f82-bb62-1e6aaee3a1b8",
+    "description": "Collection untuk menguji semua endpoint ProductService di http://localhost:8082",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Tambah Produk",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Kulkas LG\",\n  \"description\": \"Kulkas hemat listrik\",\n  \"price\": 3500000,\n  \"stock\": 20,\n  \"category\": \"Elektronik\",\n  \"brand\": \"LG\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8082/products",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["products"]
+        }
+      }
+    },
+    {
+      "name": "2. Lihat Semua Produk",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8082/products",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["products"]
+        }
+      }
+    },
+    {
+      "name": "3. Get Produk by ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8082/products/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["products", "1"]
+        }
+      }
+    },
+    {
+      "name": "4. Update Produk",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Kulkas LG 2 Pintu\",\n  \"description\": \"Kulkas inverter 2 pintu\",\n  \"price\": 4500000,\n  \"stock\": 15,\n  \"category\": \"Elektronik\",\n  \"brand\": \"LG\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8082/products/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["products", "1"]
+        }
+      }
+    },
+    {
+      "name": "5. Hapus Produk",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:8082/products/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["products", "1"]
+        }
+      }
+    },
+    {
+      "name": "6. Cari Nama Produk",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8082/products/search?name=kulkas",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["products", "search"],
+          "query": [
+            {
+              "key": "name",
+              "value": "kulkas"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "7. Cari Kategori Produk",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8082/products/search?category=Elektronik",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["products", "search"],
+          "query": [
+            {
+              "key": "category",
+              "value": "Elektronik"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "8. Kurangi Stok Produk",
+      "request": {
+        "method": "PUT",
+        "url": {
+          "raw": "http://localhost:8082/products/1/reduce-stock?quantity=3",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8082",
+          "path": ["products", "1", "reduce-stock"],
+          "query": [
+            {
+              "key": "quantity",
+              "value": "3"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+import ini ke post, buat tes apinya
